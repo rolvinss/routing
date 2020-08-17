@@ -1,9 +1,9 @@
 import useSwr from 'swr'
 import Link from 'next/link'
-import Comp from "./../components/Comp"
+
 const fetcher = async (url) => fetch(url).then((res) => res.json())
 
-export default function Index() {
+export default function Comp() {
   const { data, error } = useSwr('/api/some', fetcher)
   if (error) return <div>Failed to load users</div>
   if (!data) return <div>Loading...</div>
@@ -18,7 +18,6 @@ export default function Index() {
           </Link>
         </li>
       ))} */}
-      <Comp />
     </ul>
   )
 }
